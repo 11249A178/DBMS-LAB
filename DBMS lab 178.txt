@@ -1,0 +1,83 @@
+  SQL> Create table Student
+  2  (
+  3  Regno Number(10),
+  4  name Varchar2(20),
+  5  DOB Date,
+  6  coursename varchar2(20),
+  7  Deptno Number(2)
+  8  );
+
+Table created.
+SQL> desc Student
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                              NUMBER(10)
+ NAME                                               VARCHAR2(20)
+ DOB                                                DATE
+ COURSENAME                                         VARCHAR2(20)
+ DEPTNO                                             NUMBER(2)
+
+SQL>
+ SQL> CREATE TABLE Dept (
+  2  Deptno NUMBER(2) PRIMARY KEY,
+  3  Dname VARCHAR2(20),
+  4  Loc VARCHAR2(20)
+  5  );
+
+Table created.
+
+SQL> desc Dept
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DEPTNO                                    NOT NULL NUMBER(2)
+ DNAME                                              VARCHAR2(20)
+ LOC
+
+
+SQL> CREATE TABLE Student (
+  2  Regno NUMBER(10),
+  3  Name VARCHAR2(20),
+  4  Deptno NUMBER(2)
+  5  CONSTRAINT Stu_Fkey
+  6  REFERENCES Dept(Deptno)
+  7  );
+
+Table created.
+
+SQL> desc Student
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                              NUMBER(10)
+ NAME                                               VARCHAR2(20)
+ DEPTNO                                             NUMBER(2)
+
+SQL>
+
+SQL> create table Student
+  2  (
+  3  regno varchar(10) primary key,
+  4  studentname varchar2(20) not null,
+  5  gender char(1) default 'f',
+  6  age number check (age <100),
+  7  email varchar2(15) unique,
+  8  deptno number(5) references dept (deptno)
+  9  );
+
+Table created.
+
+SQL> desc Student
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                     NOT NULL VARCHAR2(10)
+ STUDENTNAME                               NOT NULL VARCHAR2(20)
+ GENDER                                             CHAR(1)
+ AGE                                                NUMBER
+ EMAIL                                              VARCHAR2(15)
+ DEPTNO                                             NUMBER(5)
+
+SQL>
+
+INSERT INTO Student
+(REGNO, STUDENTNAME, GENDER, AGE, EMAIL, DEPTNO)
+VALUES
+('A178', 'Bhavana', 'F', 19, 'A178@gmail.com', 10);

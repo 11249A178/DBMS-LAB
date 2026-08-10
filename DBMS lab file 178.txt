@@ -1,0 +1,37 @@
+SQL> SELECT * FROM Dept;
+
+no rows selected
+
+SQL> INSERT INTO Dept VALUES (10, 'CSE', 'CHENNAI');
+
+1 row created.
+
+SQL> INSERT INTO Dept VALUES (20, 'ECE', 'MADURAI');
+
+1 row created.
+
+SQL> INSERT INTO Dept VALUES (30, 'IT', 'TRICHY');
+
+1 row created.
+
+SQL>
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> INSERT INTO Student
+  2  (REGNO, STUDENTNAME, GENDER, AGE, EMAIL, DEPTNO)
+  3  VALUES
+  4  ('A178', 'Bhavana', 'F', 19, 'A178@gmail.com', 10);
+
+1 row created.
+
+SQL> SELECT * FROM Student;
+
+REGNO      STUDENTNAME          G        AGE EMAIL               DEPTNO
+---------- -------------------- - ---------- --------------- ----------
+A178       Bhavana              F         19 A178@gmail.com          10
+
+SQL>
+
+

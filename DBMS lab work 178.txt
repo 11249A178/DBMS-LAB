@@ -1,0 +1,106 @@
+SQL> CREATE TABLE students
+  2  (
+  3  regno number(10),
+  4  name varchar(10),
+  5  age number(2),
+  6  department varchar(20)
+  7  );
+
+Table created.
+
+SQL> desc students
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                              NUMBER(10)
+ NAME                                               VARCHAR2(10)
+ AGE                                                NUMBER(2)
+ DEPARTMENT                                         VARCHAR2(20)
+
+SQL> CREATE TABLE students
+  2  (
+  3  regno number(10) PRIMARY KEY,
+  4  name varchar(10),
+  5  age number(10),
+  6  course varchar(20),
+  7  department varchar(50)
+  8  );
+
+Table created.
+
+SQL> desc students
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                     NOT NULL NUMBER(10)
+ NAME                                               VARCHAR2(10)
+ AGE                                                NUMBER(10)
+ COURSE                                             VARCHAR2(20)
+ DEPARTMENT                                         VARCHAR2(50)
+
+SQL> CREATE TABLE department
+  2  (
+  3      course VARCHAR2(20) PRIMARY KEY,
+  4      dept_name VARCHAR2(50)
+  5  );
+
+Table created.
+
+SQL> desc department
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ COURSE                                    NOT NULL VARCHAR2(20)
+ DEPT_NAME                                          VARCHAR2(50)
+
+SQL> CREATE TABLE students
+  2  (
+  3  regno NUMBER(10),
+  4  age NUMBER(10),
+  5  course VARCHAR2(20),
+  6  CONSTRAINT stu_Fkey FOREIGN KEY (course)
+  7  REFERENCES department(course)
+  8  );
+
+Table created.
+
+SQL> desc students
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                              NUMBER(10)
+ AGE                                                NUMBER(10)
+ COURSE                                             VARCHAR2(20)
+
+SQL> INSERT INTO students (regno, name, age, course, dept_number)
+  2  VALUES (178, 'Bhavana', 19, 'CSE', 1);
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO students (regno, name, age, course, dept_number)
+  2  VALUES (184, 'lalitha', 19, 'CSE', 1);
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO students (regno, name, age, course, dept_number)
+  2  VALUES (205, 'Harini', 19, 'CSE', 1);
+
+1 row created.
+
+SQL>
+SQL> commit;
+
+Commit complete.
+
+SQL> SELECT * FROM students;
+
+                                                     
+---------- -------------------------------------------------- -----------------
+COURSE        REGNO                               DEPT_NUMBER         AGE
+-------------------- ---------------------------------------------------------
+                                                      
+CSE                   178            Bhavana                   1                       19
+
+CSE                   184               lalitha                    1                      19
+                         
+CSE                    205              Harini                     1                      19
+                         
+
