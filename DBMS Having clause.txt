@@ -1,0 +1,27 @@
+
+SQL> SELECT DEPTNO, COUNT(*) AS TOTAL_STUDENTS
+  2  FROM STUDENT
+  3  GROUP BY DEPTNO
+  4  HAVING COUNT(*) > 2;
+
+    DEPTNO TOTAL_STUDENTS
+---------- --------------
+         1              8
+
+SQL> SELECT COURSENAME, COUNT(*) AS TOTAL_STUDENTS
+  2  FROM STUDENT
+  3  GROUP BY COURSENAME
+  4  HAVING COUNT(*) > 2;
+
+COURSENAME           TOTAL_STUDENTS
+-------------------- --------------
+CSE                               8
+
+SQL> SELECT DEPTNO, COURSENAME, COUNT(*) AS TOTAL_STUDENTS
+  2  FROM STUDENT
+  3  GROUP BY DEPTNO, COURSENAME
+  4  HAVING COUNT(*) >= 2;
+
+    DEPTNO COURSENAME           TOTAL_STUDENTS
+---------- -------------------- --------------
+         1 CSE                               8
