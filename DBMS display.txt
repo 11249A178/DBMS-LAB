@@ -1,0 +1,23 @@
+SQL> SELECT DEPTNO, COUNT(*) AS TOTAL_STUDENTS
+  2  FROM STUDENT
+  3  GROUP BY DEPTNO
+  4  HAVING COUNT(*) > 2;
+
+    DEPTNO TOTAL_STUDENTS
+---------- --------------
+         1              8
+
+SQL> SELECT * FROM STUDENT;
+
+     REGNO NAME                 DOB       COURSENAME               DEPTNO
+---------- -------------------- --------- -------------------- ----------
+       178 Bhavana              05-SEP-06 CSE                           1
+       184 Lalitha              09-NOV-06 CSE                           1
+       205 Harini               19-NOV-06 CSE                           1
+       155 yashaswini           23-AUG-06 CSE                           1
+       178 Bhavana              05-SEP-06 CSE                           1
+       184 Lalitha              09-NOV-06 CSE                           1
+       205 Harini               19-NOV-06 CSE                           1
+       155 yashaswini           23-AUG-06 CSE                           1
+
+8 rows selected.
