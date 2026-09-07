@@ -1,0 +1,78 @@
+SQL> Create table Student
+  2  (
+  3  Regno Number(10),
+  4  name Varchar2(20),
+  5  DOB Date,
+  6  coursename varchar2(20),
+  7  Deptno Number(2)
+  8   );
+
+Table created.
+
+SQL> desc Student
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                              NUMBER(10)
+ NAME                                               VARCHAR2(20)
+ DOB                                                DATE
+ COURSENAME                                         VARCHAR2(20)
+ DEPTNO                                             NUMBER(2)
+
+
+SQL> INSERT INTO Student
+  2  VALUES (178, 'Bhavana', TO_DATE('05-09-2006', 'DD-MM-YYYY'), 'CSE', 1);
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO Student
+  2  VALUES (184, 'Lalitha', TO_DATE('09-11-2006', 'DD-MM-YYYY'), 'CSE', 1);
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO Student
+  2  VALUES (205, 'Harini', TO_DATE('19-11-2006', 'DD-MM-YYYY'), 'CSE', 1);
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO Student
+  2  VALUES (155,'yashaswini', TO_DATE('23-08-2006', 'DD-MM-YYYY'), 'CSE', 1);
+
+1 row created.
+
+SQL> SELECT COUNT(Deptno) AS Students_With_Dept
+  2  FROM Student;
+
+STUDENTS_WITH_DEPT
+------------------
+                 8
+
+SQL> SELECT MAX(DOB) AS Latest_DOB
+  2  FROM Student;
+
+LATEST_DO
+---------
+19-NOV-06
+
+SQL> SELECT MIN(DOB) AS Earliest_DOB
+  2  FROM Student;
+
+EARLIEST_
+---------
+23-AUG-06
+
+SQL> SELECT AVG(Deptno) AS Average_Deptno
+  2  FROM Student;
+
+AVERAGE_DEPTNO
+--------------
+             1
+
+SQL> SELECT SUM(Regno) AS Total_Regno
+  2  FROM Student;
+
+TOTAL_REGNO
+-----------
+       1444
